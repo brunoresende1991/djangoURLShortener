@@ -13,9 +13,14 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url
+from django.conf.urls import include, url
 from django.contrib import admin
+import shortenersite.urls
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-]
+    url(r'^admin/', include(admin.site.urls)),
+    # if the URL pattern match /admin/ then open up admin panel
+ 
+    url(r'', include('shortenersite.urls',namespace='shortenersite')),
+    # if anything rather then /admin/ then it will look for shortenersite/urls
+    ]
