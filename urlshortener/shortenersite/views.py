@@ -8,6 +8,7 @@ from shortenersite.models import Urls
 from django.http import HttpResponseRedirect, HttpResponse
 from django.conf import settings
 from django.core.context_processors import csrf
+#from django.core.urlresolvers import reverse
  
 def index(request):
     c = {}
